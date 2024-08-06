@@ -5,6 +5,7 @@ plugins {
 group = "ru.belyakov"
 version = "1.0-SNAPSHOT"
 
+
 repositories {
     mavenCentral()
 }

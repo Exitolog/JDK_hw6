@@ -50,14 +50,12 @@ public class Main {
     // случае смены решения и записывает все в hashmap
     private HashMap<Integer, Integer> changeOfDoorSelection() {
         int countWin = 0;
-        int countLose = 0;
         HashMap<Integer, Integer> hashMapChangeDoor = new HashMap<>();
         for (int i = 1; i <= ITERATIONS; i++) {
             ArrayList<Integer> list = new ArrayList<>(createDoor());
             choic = list.get(random.nextInt(0, 3));
 
             if (choic == 2) {
-                countLose++;
                 choic = 1;
             } else if (choic == 1) {
                 countWin++;
@@ -74,13 +72,11 @@ public class Main {
     private HashMap<Integer, Integer> noChangeDoorSelection() {
         HashMap<Integer, Integer> hashMapNoChangeDoor = new HashMap<>();
         int countWin = 0;
-        int countLose = 0;
         for (int i = 1; i <= ITERATIONS; i++) {
             ArrayList<Integer> list = new ArrayList<>(createDoor());
             choic = list.get(random.nextInt(0, 3));
             hashMapNoChangeDoor.put(i, choic);
             if (choic == 2) countWin++;
-            else countLose++;
         }
         resultIfNoChange = (float) countWin / ITERATIONS * 100;
         return hashMapNoChangeDoor;
